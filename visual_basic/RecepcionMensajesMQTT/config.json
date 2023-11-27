@@ -1,0 +1,9 @@
+﻿{
+  "mqtt": {
+    "MQTT_SERVER_HOST": "iotmnt.com",
+    "MQTT_SERVER_PORT": "1700",
+    "Cliente_Username": "mntprueba01",
+    "Cliente_Password": "mntprueba01*"
+
+  }
+}
