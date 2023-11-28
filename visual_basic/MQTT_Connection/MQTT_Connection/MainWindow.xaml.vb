@@ -28,7 +28,12 @@ Class MainWindow
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs)
 
-        'Cargando variables con información temporal
+        'Get project main parent path
+        Dim path As String = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+        Console.WriteLine(path)
+
+
+
 
 
     End Sub

@@ -5,6 +5,12 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MQTT_Connection", "MQTT_Connection\MQTT_Connection.vbproj", "{A6A9040E-1434-4F33-BFBC-EC7E581BE582}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FED562AF-F767-43ED-8E76-4D7E1C303CBA}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		config.json = config.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
