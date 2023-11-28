@@ -40,7 +40,7 @@ Class MainWindow
 
 
             'Read .env and parse it as json
-            Dim json As JObject = JObject.Parse(File.ReadAllText(path + "\.env"))
+            Dim json As JObject = JObject.Parse(File.ReadAllText(projectDirectory + "\.env"))
             'Console.WriteLine(path)
 
             MQTT_CLIENT_ID = json.SelectToken("Cliente_ID").ToString()
