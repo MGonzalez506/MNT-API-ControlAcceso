@@ -8,6 +8,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FED562AF-F767-43ED-8E76-4D7E1C303CBA}"
 	ProjectSection(SolutionItems) = preProject
 		.env = .env
+		actualizar_nivel_de_acceso.json = actualizar_nivel_de_acceso.json
+		agregar_usuario.json = agregar_usuario.json
+		agregar_usuario_sin_foto.json = agregar_usuario_sin_foto.json
+		editar_rostro.json = editar_rostro.json
+		editar_usuario.json = editar_usuario.json
+		eliminar_usuario.json = eliminar_usuario.json
+		obtener_informacion_de_persona_por_id.json = obtener_informacion_de_persona_por_id.json
 	EndProjectSection
 EndProject
 Global
