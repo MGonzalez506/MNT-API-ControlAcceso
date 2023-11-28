@@ -82,6 +82,12 @@ Class MainWindow
         Console.WriteLine("Mensaje recibido: " & message)
     End Sub
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Dim message As String = "HOLA"
+        Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(message)
+        client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+    End Sub
+
+    Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
 
     End Sub
 End Class
