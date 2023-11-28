@@ -1,0 +1,21 @@
+{
+	"module":"agregar_usuario",
+	"body":{
+		"nombre": "John",
+		"apellido": "Doe",
+		"persona_id": "100",
+		"org_num": "1",
+		"add_fotografia": [
+			{
+				"add_foto64": "face_information"
+			}
+		],
+		"tarjetas": [
+			{
+				"tarjeta": "card_id"
+			}
+		],
+		"acceso_inicio": "2000-01-01T00:00:00-06:00",
+		"acceso_final": "2037-12-31T11:59:59-06:00"
+	}
+}
