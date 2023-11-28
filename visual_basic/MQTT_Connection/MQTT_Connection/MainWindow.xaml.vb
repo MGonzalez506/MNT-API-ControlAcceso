@@ -25,12 +25,20 @@ Class MainWindow
     Private MQTT_SERVER_PORT As Integer = 0
     Private MQTT_TOPIC_TO_SEND As String = ""
     Private MQTT_TOPIC_TO_RECIEVE As String = ""
+    Private projectDirectory As String
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs)
 
         Try
             'Get project main parent path
             Dim path As String = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
+
+            Dim currentDirectory As String = Directory.GetCurrentDirectory()
+            Dim parentDirectory As String = Directory.GetParent(currentDirectory).FullName
+            Dim grandparentDirectory As String = Directory.GetParent(parentDirectory).FullName
+            projectDirectory = Directory.GetParent(grandparentDirectory).FullName
+
+
             'Read .env and parse it as json
             Dim json As JObject = JObject.Parse(File.ReadAllText(path + "\.env"))
             'Console.WriteLine(path)
