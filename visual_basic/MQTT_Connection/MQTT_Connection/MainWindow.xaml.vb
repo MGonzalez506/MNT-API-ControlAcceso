@@ -103,6 +103,105 @@ Class MainWindow
             client.Disconnect()
             Console.WriteLine("Desconectado de MQTT")
         End If
-        Thread.Sleep(500)
+        Thread.Sleep(900)
+    End Sub
+
+    Private Sub btn_01_Click(sender As Object, e As RoutedEventArgs) Handles btn_01.Click
+
+    End Sub
+
+    Private Sub btn_02_Click(sender As Object, e As RoutedEventArgs) Handles btn_02.Click
+        Try
+            ' Lee el contenido del archivo JSON
+            Dim jsonContent As String = File.ReadAllText(projectDirectory + "\agregar_usuario_sin_foto.json")
+
+            ' Publica el contenido en el tema MQTT
+            Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(jsonContent)
+            client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+
+            Console.WriteLine("Archivo JSON enviado correctamente.")
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el archivo JSON al servidor MQTT: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_03_Click(sender As Object, e As RoutedEventArgs) Handles btn_03.Click
+        Try
+            ' Lee el contenido del archivo JSON
+            Dim jsonContent As String = File.ReadAllText(projectDirectory + "\actualizar_nivel_de_acceso.json")
+
+            ' Publica el contenido en el tema MQTT
+            Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(jsonContent)
+            client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+
+            Console.WriteLine("Archivo JSON enviado correctamente.")
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el archivo JSON al servidor MQTT: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_04_Click(sender As Object, e As RoutedEventArgs) Handles btn_04.Click
+        Try
+            ' Lee el contenido del archivo JSON
+            Dim jsonContent As String = File.ReadAllText(projectDirectory + "\obtener_informacion_de_persona_por_id.json")
+
+            ' Publica el contenido en el tema MQTT
+            Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(jsonContent)
+            client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+
+            Console.WriteLine("Archivo JSON enviado correctamente.")
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el archivo JSON al servidor MQTT: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_05_Click(sender As Object, e As RoutedEventArgs) Handles btn_05.Click
+        Try
+            ' Lee el contenido del archivo JSON
+            Dim jsonContent As String = File.ReadAllText(projectDirectory + "\editar_usuario.json")
+
+            ' Publica el contenido en el tema MQTT
+            Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(jsonContent)
+            client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+
+            Console.WriteLine("Archivo JSON enviado correctamente.")
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el archivo JSON al servidor MQTT: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_06_Click(sender As Object, e As RoutedEventArgs) Handles btn_06.Click
+        Try
+            ' Lee el contenido del archivo JSON
+            Dim jsonContent As String = File.ReadAllText(projectDirectory + "\editar_rostro.json")
+
+            ' Publica el contenido en el tema MQTT
+            Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(jsonContent)
+            client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+
+            Console.WriteLine("Archivo JSON enviado correctamente.")
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el archivo JSON al servidor MQTT: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_07_Click(sender As Object, e As RoutedEventArgs) Handles btn_07.Click
+        Try
+            ' Lee el contenido del archivo JSON
+            Dim jsonContent As String = File.ReadAllText(projectDirectory + "\eliminar_usuario.json")
+
+            ' Publica el contenido en el tema MQTT
+            Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(jsonContent)
+            client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+
+            Console.WriteLine("Archivo JSON enviado correctamente.")
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el archivo JSON al servidor MQTT: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btn_salir_Click(sender As Object, e As RoutedEventArgs) Handles btn_salir.Click
+        client.Disconnect()
+        Me.Close()
     End Sub
 End Class
