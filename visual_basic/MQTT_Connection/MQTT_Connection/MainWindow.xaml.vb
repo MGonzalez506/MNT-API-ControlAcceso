@@ -33,7 +33,7 @@ Class MainWindow
             Dim path As String = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
             'Read .env and parse it as json
             Dim json As JObject = JObject.Parse(File.ReadAllText(path + "\.env"))
-            Console.WriteLine(path)
+            'Console.WriteLine(path)
 
             MQTT_CLIENT_ID = json.SelectToken("Cliente_ID").ToString()
             MQTT_USERNAME = json.SelectToken("Cliente_Username").ToString()
