@@ -33,7 +33,7 @@ Class MainWindow
             Dim path As String = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName
             'Read .env and parse it as json
             Dim json As JObject = JObject.Parse(File.ReadAllText(path + "\.env"))
-            Console.WriteLine(path)
+            'Console.WriteLine(path)
 
             MQTT_CLIENT_ID = json.SelectToken("Cliente_ID").ToString()
             MQTT_USERNAME = json.SelectToken("Cliente_Username").ToString()
@@ -82,6 +82,19 @@ Class MainWindow
         Console.WriteLine("Mensaje recibido: " & message)
     End Sub
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
+        Dim message As String = "HOLA"
+        Dim messageBytes As Byte() = System.Text.Encoding.UTF8.GetBytes(message)
+        client.Publish(MQTT_TOPIC_TO_SEND, messageBytes)
+    End Sub
 
+    Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+    Private Sub MainWindow_Closing(sender As Object, e As ComponentModel.CancelEventArgs)
+        If client.IsConnected Then
+            client.Disconnect()
+            Console.WriteLine("Desconectado de MQTT")
+        End If
+        Thread.Sleep(500)
     End Sub
 End Class
