@@ -90,4 +90,11 @@ Class MainWindow
     Private Sub Button_Click_1(sender As Object, e As RoutedEventArgs)
 
     End Sub
+    Private Sub MainWindow_Closing(sender As Object, e As ComponentModel.CancelEventArgs)
+        If client.IsConnected Then
+            client.Disconnect()
+            Console.WriteLine("Desconectado de MQTT")
+        End If
+        Thread.Sleep(500)
+    End Sub
 End Class
