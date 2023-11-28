@@ -10,3 +10,9 @@ pip install paho-mqtt
 pip install requests
 pip install python-dotenv
 ```
+
+# Para conexión por Visual Basic
+Para el caso de Visual Basic, se deben importar los paquetes desde NuGet:
+
+- Kognifai.M2Mqtt
+- Newtonsoft.Json
