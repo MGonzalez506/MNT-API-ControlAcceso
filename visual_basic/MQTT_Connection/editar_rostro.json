@@ -1,0 +1,7 @@
+{
+	  "module": "editar_rostro",
+	  "body": {
+		"mnt_id_persona": "110",
+		"add_foto64": "face_information"
+	  }
+}
