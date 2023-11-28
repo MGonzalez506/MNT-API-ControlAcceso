@@ -1,0 +1,6 @@
+{
+  "module": "eliminar_usuario",
+  "body": {
+		"mnt_id_persona": "100"
+	}
+}
