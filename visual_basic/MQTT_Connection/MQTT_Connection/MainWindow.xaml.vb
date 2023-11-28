@@ -17,7 +17,19 @@ Imports Newtonsoft.Json.Linq
 
 Class MainWindow
     Inherits Window
+    Private client As MqttClient
+    Private MQTT_CLIENT_ID As String = ""
+    Private MQTT_USERNAME As String = ""
+    Private MQTT_PASSWORD As String = ""
+    Private MQTT_SERVER_URL As String = ""
+    Private MQTT_SERVER_PORT As Integer = 0
+    Private MQTT_TOPIC_TO_SEND As String = ""
+    Private MQTT_TOPIC_TO_RECIEVE As String = ""
+
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs)
+
+        'Cargando variables con información temporal
+
 
     End Sub
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
