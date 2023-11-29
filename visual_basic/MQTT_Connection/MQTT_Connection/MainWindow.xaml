@@ -7,19 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="MainWindow_Loaded"
         Closing="MainWindow_Closing">
-    <Grid>
+    <Grid Margin="-1,-1,1,1">
         <Grid.RowDefinitions>
-            <RowDefinition Height="179*"/>
-            <RowDefinition Height="255*"/>
+            <RowDefinition Height="183*"/>
+            <RowDefinition Height="34*"/>
         </Grid.RowDefinitions>
-        <Button Content="1. Agregar un usuario con fotografía (Toma unos 5-7 segundos en responder)" HorizontalAlignment="Left" Margin="36,29,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="2. Agregar sin fotografía (Toma 2.4 segundos)" HorizontalAlignment="Left" Margin="36,54,0,0" VerticalAlignment="Top"/>
-        <Button Content="3. Aplicar nivel de acceso" HorizontalAlignment="Left" Margin="36,0,0,0" VerticalAlignment="Center" Click="Button_Click_1"/>
-        <Button Content="4. Obtener información de la persona con su mnt_id_ persona" HorizontalAlignment="Left" Margin="36,104,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="325"/>
-        <Button Content="5. Editar un usuario (para editar la fotografía utiliza la opción 6)" HorizontalAlignment="Left" Margin="36,129,0,0" VerticalAlignment="Top"/>
-        <Button Content="6. Editar un rostro (Toma 5-7 segundos en responder)" HorizontalAlignment="Left" Margin="36,154,0,0" VerticalAlignment="Top"/>
-        <Button Content="7. Eliminar un usuario" HorizontalAlignment="Left" Margin="36,179,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <Button Content="s. Salir" HorizontalAlignment="Left" Margin="36,25,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Button x:Name="btn_02" Content="2. Agregar sin fotografía (Toma de 2-4 segundos en responder)" HorizontalAlignment="Center" Margin="0,58,0,0" VerticalAlignment="Top" Height="30" Width="500" BorderThickness="1,1,1,1" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White"/>
+        <Button x:Name="btn_01" Content="1. Agregar un usuario con fotografía (Toma de 5-7 segundos en responder)" HorizontalAlignment="Center" Margin="0,23,0,0" VerticalAlignment="Top" Width="500" Height="30" Background="#FF881F19" Foreground="White" BorderBrush="#FF881F70"/>
+        <Button x:Name="btn_03" Content="3. Aplicar nivel de acceso" HorizontalAlignment="Center" VerticalAlignment="Top" Height="30" Width="500" BorderThickness="1,1,1,1" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White" Margin="0,93,0,0"/>
+        <Button x:Name="btn_04" Content="4. Obtener información de la persona con su mtn_id_persona" HorizontalAlignment="Center" Margin="0,128,0,0" VerticalAlignment="Top" Height="30" Width="500" BorderThickness="1,1,1,1" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White"/>
+        <Button x:Name="btn_05" Content="5. Editar un usuario (Para editar la fotografía utilice la opción 6)" HorizontalAlignment="Center" Margin="0,163,0,0" VerticalAlignment="Top" Height="30" Width="500" BorderThickness="1,1,1,1" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White"/>
+        <Button x:Name="btn_06" Content="6. Editar un rostro (Toma de 5-7 segundos en responder)" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White" Width="500" Height="30"/>
+        <Button x:Name="btn_07" Content="7. Eliminar un usuario" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="500" Height="30" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White"/>
+        <Button x:Name="btn_salir" Content="s. Salir" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Background="#FF881F19" BorderBrush="#FF881F19" Foreground="White" Width="500" Height="30"/>
 
     </Grid>
 </Window>

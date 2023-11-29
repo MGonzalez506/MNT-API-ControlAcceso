@@ -1,0 +1,11 @@
+{
+  "module": "editar_usuario",
+  "body": {
+	"mnt_id_persona": "554",
+	"nombre": "Jonathan",
+	"apellido": "Doe Doe",
+
+	"acceso_inicio": "2000-04-26T15:00:00-06:00",
+	"acceso_final": "2025-01-01T00:00:00-06:00"
+  }
+}
