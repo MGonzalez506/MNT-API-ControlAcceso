@@ -1,7 +1,7 @@
 {
 	"module":"agregar_usuario",
 	"body":{
-		"nombre": "Valeria",
+		"nombre": "John Juan",
 		"apellido": "Doe",
 		"persona_id": "102",
 		"org_num": "1",
