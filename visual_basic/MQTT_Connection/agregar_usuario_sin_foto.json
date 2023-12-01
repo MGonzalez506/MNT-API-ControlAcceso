@@ -3,7 +3,7 @@
 	"body":{
 		"nombre": "John Juan",
 		"apellido": "Doe",
-		"persona_id": "102",
+		"persona_id": "0010010120",
 		"org_num": "1",
 		"tarjetas": [
 			{
