@@ -16,14 +16,14 @@ from json_texts import get_json_example
 load_dotenv(override=True)
 
 # Credenciales MQTT
-MQTT_CERT_FILE_PATH = os.environ.get('MQTT_CERT_FILE_PATH')
-MQTT_CLIENT_ID = os.environ.get('Cliente_ID')
-MQTT_USERNAME = os.environ.get('Cliente_Username')
-MQTT_PASSWORD = os.environ.get('Cliente_Password')
-MQTT_SERVERURL = os.environ.get('MQTT_SERVER_HOST')
-MQTT_SERVERPORT = int(os.environ.get('MQTT_SERVER_PORT'))
-MQTT_TOPIC_TO_SEND = os.environ.get('MQTT_TOPIC_TO_SEND')
-MQTT_TOPIC_TO_RECEIVE = os.environ.get('MQTT_TOPIC_TO_RECEIVE')
+MQTT_CERT_FILE_PATH = os.getenv('MQTT_CERT_FILE_PATH')
+MQTT_CLIENT_ID = os.getenv('Cliente_ID')
+MQTT_USERNAME = os.getenv('Cliente_Username')
+MQTT_PASSWORD = os.getenv('Cliente_Password')
+MQTT_SERVERURL = os.getenv('MQTT_SERVER_HOST')
+MQTT_SERVERPORT = int(os.getenv('MQTT_SERVER_PORT'))
+MQTT_TOPIC_TO_SEND = os.getenv('MQTT_TOPIC_TO_SEND')
+MQTT_TOPIC_TO_RECEIVE = os.getenv('MQTT_TOPIC_TO_RECEIVE')
 
 def send_to_mqtts(topic, msg, print_topic_and_msg):
 	if print_topic_and_msg == True:
