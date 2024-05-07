@@ -13,6 +13,8 @@ import paho.mqtt.client as mqtt
 from dotenv import load_dotenv
 from json_texts import get_json_example
 
+load_dotenv(override=True)
+
 # Credenciales MQTT
 MQTT_CERT_FILE_PATH = os.environ.get('MQTT_CERT_FILE_PATH')
 MQTT_CLIENT_ID = os.environ.get('Cliente_ID')
