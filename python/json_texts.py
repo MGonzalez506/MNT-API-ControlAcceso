@@ -4,6 +4,9 @@ import time
 import base64
 import random
 
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
 EXAMPLE_PHOTO_FOLDER_PATH = os.environ.get('PHOTO_FOLDER')
 
 def get_json_info_from_photo(photo_path):
