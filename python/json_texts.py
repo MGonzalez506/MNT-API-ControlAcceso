@@ -7,6 +7,8 @@ import random
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
+ORG_NUM = os.getenv('ORG_NUMBER')
+
 EXAMPLE_PHOTO_FOLDER_PATH = os.environ.get('PHOTO_FOLDER')
 
 def get_json_info_from_photo(photo_path):
