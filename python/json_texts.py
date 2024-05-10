@@ -4,6 +4,11 @@ import time
 import base64
 import random
 
+from dotenv import load_dotenv
+load_dotenv(override=True)
+
+ORG_NUM = os.getenv('ORG_NUMBER')
+
 EXAMPLE_PHOTO_FOLDER_PATH = os.environ.get('PHOTO_FOLDER')
 
 def get_json_info_from_photo(photo_path):
@@ -43,7 +48,7 @@ agregar_usuario = \
 	"nombre": "John",
 	"apellido": "Doe",
 	"persona_id": "100",
-	"org_num": "1",
+	"org_num": ORG_NUM,
 	"add_fotografia": [
 		  {
 		"add_foto64": "face_information"
@@ -66,7 +71,7 @@ agregar_usuario_sin_foto = \
 	"nombre": "John Michael",
 	"apellido": "Doe",
 	"persona_id": "100",
-	"org_num": "1",
+	"org_num": ORG_NUM,
 	"tarjetas": [
 	  {
 		"tarjeta": "card_id"

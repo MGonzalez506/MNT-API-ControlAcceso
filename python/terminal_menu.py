@@ -78,6 +78,7 @@ if __name__ == "__main__":
 	os.system('clear')
 
 	menu="---------------------------------------------\n"
+	menu += "Bienvenido: " + MQTT_USERNAME + "\n"
 	menu += "1. Agregar un usuario con fotografia (Toma unos 5 - 7 segundos en responder)\n"
 	menu += "2. Agregar sin fotografía (Toma unos 2.4 segundos)\n"
 	menu += "3. Aplicar nivel de acceso\n"
