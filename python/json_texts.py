@@ -56,11 +56,11 @@ agregar_usuario = \
 	],
 	"tarjetas": [
 	  {
-		"tarjeta": "card_id"
+		"tarjeta": ""
 	  }
 	],
 	"acceso_inicio": "2000-01-01T00:00:00-06:00",
-	"acceso_final": "2037-12-31T11:59:59-06:00"
+	"acceso_final": "2037-12-31T11:59:59-06:00", 
   }
 }
 
@@ -68,13 +68,13 @@ agregar_usuario_sin_foto = \
 {
   "module": "agregar_usuario_sin_foto",
   "body": {
-	"nombre": "John Michael",
+	"nombre": "John Doe",
 	"apellido": "Doe",
-	"persona_id": "100",
+	"persona_id": "",
 	"org_num": ORG_NUM,
 	"tarjetas": [
 	  {
-		"tarjeta": "card_id"
+		"tarjeta": ""
 	  }
 	],
 	"acceso_inicio": "2000-01-01T00:00:00-06:00",
@@ -137,6 +137,14 @@ eliminar_usuario = \
 	}
 }
 
+obtener_mnt_id_persona = \
+{
+	  "module": "obtener_mnt_id_persona",
+	  "body": {
+		"persona_id": "100"
+	  }
+}
+
 def get_random_card_id():
 	# Get epoch time in seconds and store in card_id variable
 	epoch_time = int(time.time())
@@ -157,7 +165,10 @@ def get_json_example(module):
 	
 	elif module == "agregar_usuario":
 		card_id = get_random_card_id()
-		agregar_usuario['body']['persona_id'] = card_id
+		# Check if persona_id is empty
+		if agregar_usuario_sin_foto['body']['persona_id'] == "":
+			# If it is empty, assign a new card_id
+			agregar_usuario_sin_foto['body']['persona_id'] = card_id
 
 		# Select 1 of 4 photos to send
 		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + str(random.randint(2, 4)) + ".jpeg"
@@ -169,7 +180,10 @@ def get_json_example(module):
 	
 	elif module == "agregar_usuario_sin_foto":
 		card_id = get_random_card_id()
-		agregar_usuario_sin_foto['body']['persona_id'] = card_id
+		# Check if persona_id is empty
+		if agregar_usuario_sin_foto['body']['persona_id'] == "":
+			# If it is empty, assign a new card_id
+			agregar_usuario_sin_foto['body']['persona_id'] = card_id
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(agregar_usuario_sin_foto).replace("card_id", card_id)
@@ -239,4 +253,15 @@ def get_json_example(module):
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(eliminar_usuario)
+		return json_de_retorno
+	
+	elif module == "obtener_mnt_id_persona":
+		# Input the personId
+		persona_id_escogido = input("Ingrese el id de la persona: ")
+
+		# Change the persona_id value to the new persona_id
+		obtener_mnt_id_persona['body']['persona_id'] = str(persona_id_escogido)
+
+		# Convert the dictionary to json
+		json_de_retorno = json.dumps(obtener_mnt_id_persona)
 		return json_de_retorno

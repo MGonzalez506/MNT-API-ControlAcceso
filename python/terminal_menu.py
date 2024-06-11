@@ -30,7 +30,7 @@ def send_to_mqtts(topic, msg, print_topic_and_msg):
 		os.write(sys.stdout.fileno(), topic.encode('utf-8'))
 		os.write(sys.stdout.fileno(), msg.encode('utf-8'))
 		os.write(sys.stdout.fileno(), "\n".encode('utf-8'))
-	mqtt_client.publish(topic, msg, qos=2, retain=False)
+	mqtt_client.publish(MQTT_TOPIC_TO_SEND, msg, qos=2, retain=False)
 
 def on_connect(client, userdata, flags, rc):
 	print("Connected to broker")
@@ -78,7 +78,10 @@ if __name__ == "__main__":
 	os.system('clear')
 
 	menu="---------------------------------------------\n"
-	menu += "Bienvenido: " + MQTT_USERNAME + "\n"
+	menu += "Username: " + MQTT_USERNAME + "\n"
+	menu += "Topic to send: " + MQTT_TOPIC_TO_SEND + "\n"
+	menu += "Topic to receive: " + MQTT_TOPIC_TO_RECEIVE + "\n"
+	menu += "---------------------------------------------\n"
 	menu += "1. Agregar un usuario con fotografia (Toma unos 5 - 7 segundos en responder)\n"
 	menu += "2. Agregar sin fotografía (Toma unos 2.4 segundos)\n"
 	menu += "3. Aplicar nivel de acceso\n"
@@ -86,6 +89,7 @@ if __name__ == "__main__":
 	menu += "5. Editar un usuario (para editar la fotografía utiliza la opción 6)\n"
 	menu += "6. Editar un rostro (Toma unos 5 - 7 segundos en responder)\n"
 	menu += "7. Eliminar un usuario\n"
+	menu += "8. Obtener el mnt_id_persona a partir del persona_id\n"
 	menu += "s. Salir...\n"
 	print(menu)
 
@@ -108,6 +112,8 @@ if __name__ == "__main__":
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('editar_rostro'), False)
 		elif input_text == '7':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('eliminar_usuario'), False)
+		elif input_text == '8':
+			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('obtener_mnt_id_persona'), False)
 		elif input_text == 's' or input_text == 'S':
 			os.system('clear')
 			# Cerrar la sesión MQTT
