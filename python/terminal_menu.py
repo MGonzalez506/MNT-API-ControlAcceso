@@ -89,6 +89,7 @@ if __name__ == "__main__":
 	menu += "5. Editar un usuario (para editar la fotografía utiliza la opción 6)\n"
 	menu += "6. Editar un rostro (Toma unos 5 - 7 segundos en responder)\n"
 	menu += "7. Eliminar un usuario\n"
+	menu += "8. Obtener el mnt_id_persona a partir del persona_id\n"
 	menu += "s. Salir...\n"
 	print(menu)
 
@@ -111,6 +112,8 @@ if __name__ == "__main__":
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('editar_rostro'), False)
 		elif input_text == '7':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('eliminar_usuario'), False)
+		elif input_text == '8':
+			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('obtener_mnt_id_persona'), False)
 		elif input_text == 's' or input_text == 'S':
 			os.system('clear')
 			# Cerrar la sesión MQTT
