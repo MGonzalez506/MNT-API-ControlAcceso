@@ -68,13 +68,13 @@ agregar_usuario_sin_foto = \
 {
   "module": "agregar_usuario_sin_foto",
   "body": {
-	"nombre": "John Michael",
+	"nombre": "John Doe",
 	"apellido": "Doe",
-	"persona_id": "100",
+	"persona_id": "",
 	"org_num": ORG_NUM,
 	"tarjetas": [
 	  {
-		"tarjeta": "card_id"
+		"tarjeta": ""
 	  }
 	],
 	"acceso_inicio": "2000-01-01T00:00:00-06:00",
