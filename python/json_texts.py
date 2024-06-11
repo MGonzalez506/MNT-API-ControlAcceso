@@ -165,7 +165,10 @@ def get_json_example(module):
 	
 	elif module == "agregar_usuario":
 		card_id = get_random_card_id()
-		agregar_usuario['body']['persona_id'] = card_id
+		# Check if persona_id is empty
+		if agregar_usuario_sin_foto['body']['persona_id'] == "":
+			# If it is empty, assign a new card_id
+			agregar_usuario_sin_foto['body']['persona_id'] = card_id
 
 		# Select 1 of 4 photos to send
 		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + str(random.randint(2, 4)) + ".jpeg"
