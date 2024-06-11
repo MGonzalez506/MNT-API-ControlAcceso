@@ -240,3 +240,14 @@ def get_json_example(module):
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(eliminar_usuario)
 		return json_de_retorno
+	
+	elif module == "obtener_mnt_id_persona":
+		# Input the personId
+		persona_id_escogido = input("Ingrese el id de la persona: ")
+
+		# Change the persona_id value to the new persona_id
+		obtener_mnt_id_persona['body']['persona_id'] = str(persona_id_escogido)
+
+		# Convert the dictionary to json
+		json_de_retorno = json.dumps(obtener_mnt_id_persona)
+		return json_de_retorno
