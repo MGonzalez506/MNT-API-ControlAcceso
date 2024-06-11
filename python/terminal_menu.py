@@ -30,7 +30,7 @@ def send_to_mqtts(topic, msg, print_topic_and_msg):
 		os.write(sys.stdout.fileno(), topic.encode('utf-8'))
 		os.write(sys.stdout.fileno(), msg.encode('utf-8'))
 		os.write(sys.stdout.fileno(), "\n".encode('utf-8'))
-	mqtt_client.publish(topic, msg, qos=2, retain=False)
+	mqtt_client.publish(MQTT_TOPIC_TO_SEND, msg, qos=2, retain=False)
 
 def on_connect(client, userdata, flags, rc):
 	print("Connected to broker")
