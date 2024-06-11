@@ -180,7 +180,10 @@ def get_json_example(module):
 	
 	elif module == "agregar_usuario_sin_foto":
 		card_id = get_random_card_id()
-		agregar_usuario_sin_foto['body']['persona_id'] = card_id
+		# Check if persona_id is empty
+		if agregar_usuario_sin_foto['body']['persona_id'] == "":
+			# If it is empty, assign a new card_id
+			agregar_usuario_sin_foto['body']['persona_id'] = card_id
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(agregar_usuario_sin_foto).replace("card_id", card_id)
