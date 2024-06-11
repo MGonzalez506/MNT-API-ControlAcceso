@@ -56,11 +56,11 @@ agregar_usuario = \
 	],
 	"tarjetas": [
 	  {
-		"tarjeta": "card_id"
+		"tarjeta": ""
 	  }
 	],
 	"acceso_inicio": "2000-01-01T00:00:00-06:00",
-	"acceso_final": "2037-12-31T11:59:59-06:00"
+	"acceso_final": "2037-12-31T11:59:59-06:00", 
   }
 }
 
