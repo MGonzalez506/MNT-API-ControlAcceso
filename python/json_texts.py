@@ -137,6 +137,14 @@ eliminar_usuario = \
 	}
 }
 
+obtener_mnt_id_persona = \
+{
+	  "module": "obtener_mnt_id_persona",
+	  "body": {
+		"persona_id": "100"
+	  }
+}
+
 def get_random_card_id():
 	# Get epoch time in seconds and store in card_id variable
 	epoch_time = int(time.time())
