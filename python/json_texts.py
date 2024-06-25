@@ -47,7 +47,7 @@ agregar_usuario = \
   "body": {
 	"nombre": "John",
 	"apellido": "Doe",
-	"persona_id": "100",
+	"persona_id": "card_id",
 	"org_num": ORG_NUM,
 	"add_fotografia": [
 		  {
@@ -69,8 +69,7 @@ agregar_usuario_sin_foto = \
   "module": "agregar_usuario_sin_foto",
   "body": {
 	"nombre": "John Doe",
-	"apellido": "Doe",
-	"persona_id": "",
+	"persona_id": "card_id",
 	"org_num": ORG_NUM,
 	"tarjetas": [
 	  {
@@ -133,7 +132,8 @@ eliminar_usuario = \
 {
   "module": "eliminar_usuario",
   "body": {
-		"mnt_id_persona": "100"
+		"mnt_id_persona": "100",
+		"persona_id": "100",
 	}
 }
 
