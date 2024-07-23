@@ -81,6 +81,18 @@ agregar_usuario_sin_foto = \
   }
 }
 
+agregar_usuarios_bulk = \
+{
+  "module": "agregar_usuarios_bulk",
+  "body": {
+	"nombre": "John Doe",
+	"persona_id": "card_id",
+	"org_num": ORG_NUM,
+	"acceso_inicio": "2000-01-01T00:00:00-06:00",
+	"acceso_final": "2037-12-31T11:59:59-06:00"
+  }
+}
+
 actualizar_nivel_de_acceso = \
 {
   "module": "actualizar_nivel_de_acceso",
@@ -187,6 +199,17 @@ def get_json_example(module):
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(agregar_usuario_sin_foto).replace("card_id", card_id)
+		return json_de_retorno
+	
+	elif module == "agregar_usuarios_bulk":
+		card_id = get_random_card_id()
+		# Check if persona_id is empty
+		if agregar_usuarios_bulk['body']['persona_id'] == "":
+			# If it is empty, assign a new card_id
+			agregar_usuarios_bulk['body']['persona_id'] = card_id
+
+		# Convert the dictionary to json
+		json_de_retorno = json.dumps(agregar_usuarios_bulk).replace("card_id", card_id)
 		return json_de_retorno
 	
 	elif module == "actualizar_nivel_de_acceso":
