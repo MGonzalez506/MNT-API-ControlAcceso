@@ -6,7 +6,7 @@ Descripción de la conexión a nuestros servers para ingresar, editar y eliminar
 En este ambiente virtual se pueden instalar los siguientes paquetes:
 
 ```
-pip install paho-mqtt
+pip install paho-mqtt==1.6.1
 pip install requests
 pip install python-dotenv
 ```
