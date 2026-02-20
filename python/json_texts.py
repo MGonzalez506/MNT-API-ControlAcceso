@@ -9,7 +9,9 @@ load_dotenv(override=True)
 
 ORG_NUM = os.getenv('ORG_NUMBER')
 
-EXAMPLE_PHOTO_FOLDER_PATH = os.environ.get('PHOTO_FOLDER')
+#EXAMPLE_PHOTO_FOLDER_PATH = os.environ.get('PHOTO_FOLDER')
+# Get current project folder path
+EXAMPLE_PHOTO_FOLDER_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def get_json_info_from_photo(photo_path):
 	with open(photo_path, "rb") as image_file:
