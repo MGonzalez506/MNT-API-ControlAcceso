@@ -68,7 +68,7 @@ agregar_usuario = \
 
 agregar_usuario_sin_foto = \
 {
-  "module": "agregar_usuario_sin_foto",
+  "module": "agregar_usuario",
   "body": {
 	"nombre": "John Doe",
 	"persona_id": "card_id",
