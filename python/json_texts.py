@@ -186,7 +186,8 @@ def get_json_example(module):
 			agregar_usuario_sin_foto['body']['persona_id'] = card_id
 
 		# Select 1 of 4 photos to send
-		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + str(random.randint(2, 4)) + ".jpeg"
+		#photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + "/" + str(random.randint(2, 4)) + ".jpeg"
+		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + "/4.jpeg"
 		agregar_usuario['body']['add_fotografia'][0]['add_foto64'] = get_json_info_from_photo(photo_to_send)
 
 		# Convert the dictionary to json
@@ -262,7 +263,7 @@ def get_json_example(module):
 		editar_rostro['body']['mnt_id_persona'] = str(personId)
 		
 		# Edit user with photo #1
-		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + "1.jpeg"
+		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + "/1.jpeg"
 		editar_rostro['body']['add_foto64'] = get_json_info_from_photo(photo_to_send)
 		
 		# Convert the dictionary to json
