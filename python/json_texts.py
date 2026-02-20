@@ -70,7 +70,8 @@ agregar_usuario_sin_foto = \
 {
   "module": "agregar_usuario",
   "body": {
-	"nombre": "John Doe",
+	"nombre": "John",
+	"apellido": "Acuña",
 	"persona_id": "card_id",
 	"org_num": ORG_NUM,
 	"tarjetas": [
