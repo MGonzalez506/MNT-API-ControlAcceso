@@ -139,12 +139,11 @@ if __name__ == "__main__":
 	menu += "---------------------------------------------\n"
 	menu += "1. Agregar sin fotografía (Toma unos 2.4 segundos)\n"
 	menu += "2. Aplicar nivel de acceso\n"
-	menu += "3. Obtener información de la persona con su mnt_id_persona\n"
-	menu += "4. Editar un usuario (para editar la fotografía utiliza la opción 6)\n"
-	menu += "5. Editar un rostro (Toma unos 5 - 7 segundos en responder)\n"
-	menu += "6. Eliminar un usuario\n"
-	menu += "7. Obtener el mnt_id_persona a partir del persona_id\n"
-	menu += "8. Agregar varios usuarios\n"
+	menu += "3. Editar un usuario (para editar la fotografía utiliza la opción 6)\n"
+	menu += "4. Editar un rostro (Toma unos 5 - 7 segundos en responder)\n"
+	menu += "5. Eliminar un usuario\n"
+	menu += "6. Obtener el mnt_id_persona a partir del persona_id\n"
+	#--> menu += "7. Agregar varios usuarios\n"
 	menu += "s. Salir...\n"
 	print(menu)
 
@@ -157,38 +156,37 @@ if __name__ == "__main__":
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('agregar_usuario'), False)
 		elif input_text == '2':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('update_access_level'), False)
+		#--> elif input_text == '3':
+		#--> send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('obtener_informacion_de_persona_por_id'), False)
 		elif input_text == '3':
-			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('obtener_informacion_de_persona_por_id'), False)
-		elif input_text == '4':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('editar_usuario'), False)
-		elif input_text == '5':
+		elif input_text == '4':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('editar_rostro'), False)
-		elif input_text == '6':
+		elif input_text == '5':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('eliminar_usuario'), False)
-		elif input_text == '7':
+		elif input_text == '6':
 			send_to_mqtts(MQTT_TOPIC_TO_SEND, get_json_example('obtener_mnt_id_persona'), False)
-		elif input_text == '8':
-			# Digita la cantidad de usuarios que se desean simular
-			cantidad_de_usuarios = input("Ingrese la cantidad de usuarios a simular: ")
-			# Genera un conjunto de cuatro letras aleatorias
-			id_en_letras = ''.join(random.choices(string.ascii_uppercase, k=4))
-			json_people = []
-			for i in range(int(cantidad_de_usuarios)):
-				nombre_de_persona = id_en_letras + str(i)
-				# Convert the json to a dictionary
-				json_example = json.loads(get_json_example('agregar_usuarios_bulk'))
-				json_example['body']['nombre'] = nombre_de_persona
-				json_example['body']['persona_id'] = nombre_de_persona + str(i)
-				json_people.append(json_example)
+			"""elif input_text == '7':
+				# Digita la cantidad de usuarios que se desean simular
+				cantidad_de_usuarios = input("Ingrese la cantidad de usuarios a simular: ")
+				# Genera un conjunto de cuatro letras aleatorias
+				id_en_letras = ''.join(random.choices(string.ascii_uppercase, k=4))
+				json_people = []
+				for i in range(int(cantidad_de_usuarios)):
+					nombre_de_persona = id_en_letras + str(i)
+					# Convert the json to a dictionary
+					json_example = json.loads(get_json_example('agregar_usuarios_bulk'))
+					json_example['body']['nombre'] = nombre_de_persona
+					json_example['body']['persona_id'] = nombre_de_persona + str(i)
+					json_people.append(json_example)
 
-			for __json__ in json_people:
-				# Convert dictionary to json string
-				__json__ = json.dumps(__json__)
-				# Print json beautified
-				#print(json.dumps(json.loads(__json__), indent=4, sort_keys=True))
-				# Send the json string to the MQTT server
-				send_to_mqtts(MQTT_TOPIC_TO_SEND, __json__, False)
-
+				for __json__ in json_people:
+					# Convert dictionary to json string
+					__json__ = json.dumps(__json__)
+					# Print json beautified
+					#print(json.dumps(json.loads(__json__), indent=4, sort_keys=True))
+					# Send the json string to the MQTT server
+					send_to_mqtts(MQTT_TOPIC_TO_SEND, __json__, False)"""
 		elif input_text == 's' or input_text == 'S':
 			os.system('clear')
 			# Safely close the MQTT session
