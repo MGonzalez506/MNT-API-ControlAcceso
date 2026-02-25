@@ -5,7 +5,11 @@ import base64
 import random
 
 from dotenv import load_dotenv
-load_dotenv(override=True)
+
+# Ensure the .env file is loaded from the current file's directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+dotenv_path = os.path.join(current_dir, '.env')
+load_dotenv(dotenv_path, override=True)
 
 ORG_NUM = os.getenv('ORG_NUMBER')
 
@@ -46,6 +50,7 @@ obtener_informacion_de_organizaciones = \
 agregar_usuario = \
 {
   "module": "agregar_usuario",
+  "correlation_id": "unique_id",
   "body": {
 	"nombre": "John",
 	"apellido": "Doe",
@@ -69,6 +74,7 @@ agregar_usuario = \
 agregar_usuario_sin_foto = \
 {
   "module": "agregar_usuario",
+  "correlation_id": "unique_id",
   "body": {
 	"nombre": "John",
 	"apellido": "Acuña",
@@ -87,6 +93,7 @@ agregar_usuario_sin_foto = \
 agregar_usuarios_bulk = \
 {
   "module": "agregar_usuarios_bulk",
+  "correlation_id": "unique_id",
   "body": {
 	"nombre": "John Doe",
 	"persona_id": "card_id",
@@ -99,6 +106,7 @@ agregar_usuarios_bulk = \
 actualizar_nivel_de_acceso = \
 {
   "module": "actualizar_nivel_de_acceso",
+  "correlation_id": "unique_id",
   "body": {
 	"mnt_id_persona": "23"
   }
@@ -107,6 +115,7 @@ actualizar_nivel_de_acceso = \
 obtener_informacion_de_persona_por_id = \
 {
 	"module": "obtener_informacion_de_persona_por_id",
+	"correlation_id": "unique_id",
 	"body": {
 		"mnt_id_persona": "110"
 	}
@@ -115,6 +124,7 @@ obtener_informacion_de_persona_por_id = \
 editar_usuario = \
 {
   "module": "editar_usuario",
+  "correlation_id": "unique_id",
   "body": {
 	"mnt_id_persona": "110",
 	"nombre": "Jonathan",
@@ -137,6 +147,7 @@ editar_usuario = \
 editar_rostro = \
 {
 	  "module": "editar_rostro",
+	  "correlation_id": "unique_id",
 	  "body": {
 		"mnt_id_persona": "110",
 		"add_foto64": "face_information"
@@ -146,6 +157,7 @@ editar_rostro = \
 eliminar_usuario = \
 {
   "module": "eliminar_usuario",
+  "correlation_id": "unique_id",
   "body": {
 		"mnt_id_persona": "100",
 		"persona_id": "100",
@@ -155,6 +167,7 @@ eliminar_usuario = \
 obtener_mnt_id_persona = \
 {
 	  "module": "obtener_mnt_id_persona",
+	  "correlation_id": "unique_id",
 	  "body": {
 		"persona_id": "100"
 	  }
@@ -190,6 +203,9 @@ def get_json_example(module):
 		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + "/4.jpeg"
 		agregar_usuario['body']['add_fotografia'][0]['add_foto64'] = get_json_info_from_photo(photo_to_send)
 
+		# Change the unique_id value to a new unique id
+		agregar_usuario['correlation_id'] = str(random.randint(1, 1000000))
+
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(agregar_usuario).replace("card_id", card_id)
 		return json_de_retorno
@@ -200,6 +216,9 @@ def get_json_example(module):
 		if agregar_usuario_sin_foto['body']['persona_id'] == "":
 			# If it is empty, assign a new card_id
 			agregar_usuario_sin_foto['body']['persona_id'] = card_id
+
+		# Change the unique_id value to a new unique id
+		agregar_usuario_sin_foto['correlation_id'] = str(random.randint(1, 1000000))
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(agregar_usuario_sin_foto).replace("card_id", card_id)
@@ -212,16 +231,32 @@ def get_json_example(module):
 			# If it is empty, assign a new card_id
 			agregar_usuarios_bulk['body']['persona_id'] = card_id
 
+		# Change the unique_id value to a new unique id
+		agregar_usuarios_bulk['correlation_id'] = str(random.randint(1, 1000000))
+
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(agregar_usuarios_bulk).replace("card_id", card_id)
 		return json_de_retorno
 	
-	elif module == "actualizar_nivel_de_acceso":
+	elif module == "actualizar_nivel_de_acceso":# Change the personId value to the new personId
+		actualizar_nivel_de_acceso['body']['mnt_id_persona'] = "1"
+
+		# Change the unique_id value to a new unique id
+		actualizar_nivel_de_acceso['correlation_id'] = str(random.randint(1, 1000000))
+		
+		# Convert the dictionary to json
+		json_de_retorno = json.dumps(actualizar_nivel_de_acceso)
+		return json_de_retorno
+	
+	elif module == "update_access_level":
 		# Input the personId
 		id_de_la_persona = input("Ingrese el id MNT: ")
 		
 		# Change the personId value to the new personId
 		actualizar_nivel_de_acceso['body']['mnt_id_persona'] = str(id_de_la_persona)
+
+		# Change the unique_id value to a new unique id
+		actualizar_nivel_de_acceso['correlation_id'] = str(random.randint(1, 1000000))
 		
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(actualizar_nivel_de_acceso)
@@ -233,6 +268,9 @@ def get_json_example(module):
 
 		# Change the personId value to the new personId
 		obtener_informacion_de_persona_por_id['body']['mnt_id_persona'] = str(id_de_la_persona)
+
+		# Change the unique_id value to a new unique id
+		obtener_informacion_de_persona_por_id['correlation_id'] = str(random.randint(1, 1000000))
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(obtener_informacion_de_persona_por_id)
@@ -250,6 +288,9 @@ def get_json_example(module):
 		# Change the cardNo value to the new card_id
 		editar_usuario['body']['tarjetas'][0]['tarjeta'] = card_id
 		
+		# Change the unique_id value to a new unique id
+		editar_usuario['correlation_id'] = str(random.randint(1, 1000000))
+		
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(editar_usuario)
 		return json_de_retorno
@@ -265,6 +306,9 @@ def get_json_example(module):
 		# Edit user with photo #1
 		photo_to_send = EXAMPLE_PHOTO_FOLDER_PATH + "/1.jpeg"
 		editar_rostro['body']['add_foto64'] = get_json_info_from_photo(photo_to_send)
+
+		# Change the unique_id value to a new unique id
+		editar_rostro['correlation_id'] = str(random.randint(1, 1000000))
 		
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(editar_rostro)
@@ -278,6 +322,9 @@ def get_json_example(module):
 		# Change the personId value to the new personId
 		eliminar_usuario['body']['mnt_id_persona'] = str(id_de_la_persona)
 
+		# Change the unique_id value to a new unique id
+		eliminar_usuario['correlation_id'] = str(random.randint(1, 1000000))
+
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(eliminar_usuario)
 		return json_de_retorno
@@ -288,6 +335,9 @@ def get_json_example(module):
 
 		# Change the persona_id value to the new persona_id
 		obtener_mnt_id_persona['body']['persona_id'] = str(persona_id_escogido)
+
+		# Change the unique_id value to a new unique id
+		obtener_mnt_id_persona['correlation_id'] = str(random.randint(1, 1000000))
 
 		# Convert the dictionary to json
 		json_de_retorno = json.dumps(obtener_mnt_id_persona)
